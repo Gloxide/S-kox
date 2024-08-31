@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://cvfkucmcxj7hu"]
+
+[sub_resource type="Gradient" id="Gradient_nwtu1"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.429577, 0.5)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3wy3u"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_440qf"]
+seamless = true
+color_ramp = SubResource("Gradient_nwtu1")
+noise = SubResource("FastNoiseLite_3wy3u")
+
+[resource]
+resource_name = "METALFENCE007A"
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("NoiseTexture2D_440qf")

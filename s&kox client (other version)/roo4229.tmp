@@ -1,0 +1,168 @@
+[gd_scene load_steps=16 format=3 uid="uid://cng1ndy2s187e"]
+
+[ext_resource type="Texture2D" uid="uid://cvk5y38r78408" path="res://bg.png" id="1_3gfqf"]
+[ext_resource type="Script" path="res://Netcode.gd" id="1_m44sp"]
+[ext_resource type="Script" path="res://Control.gd" id="1_w0aj1"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_72rtc"]
+viewport_path = NodePath("Control/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts0lc"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4vlf"]
+bg_color = Color(0.0728426, 0.0728427, 0.0728425, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iluh0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aneeh"]
+bg_color = Color(0.0728426, 0.0728427, 0.0728425, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ja4n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wig47"]
+bg_color = Color(0.0728426, 0.0728427, 0.0728425, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2abcd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44bdp"]
+bg_color = Color(0.0728426, 0.0728427, 0.0728425, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcsll"]
+bg_color = Color(0.163797, 0.163799, 0.144131, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o3pmd"]
+bg_color = Color(0.0728426, 0.0728427, 0.0728425, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lss0f"]
+
+[node name="Root" type="Node"]
+
+[node name="Netcode" type="Node" parent="."]
+script = ExtResource("1_m44sp")
+
+[node name="3D" type="Node" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w0aj1")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_72rtc")
+
+[node name="Panel2" type="Panel" parent="Control"]
+custom_minimum_size = Vector2(322, 218)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -109.0
+offset_right = 161.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ts0lc")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "S&kox client"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IP" type="LineEdit" parent="Control/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_q4vlf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iluh0")
+text = "localhost"
+placeholder_text = "IP Address"
+alignment = 1
+
+[node name="Port" type="LineEdit" parent="Control/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_aneeh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ja4n")
+text = "7878"
+placeholder_text = "Port"
+alignment = 1
+
+[node name="Username" type="LineEdit" parent="Control/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_wig47")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2abcd")
+placeholder_text = "Username"
+alignment = 1
+
+[node name="Connect" type="Button" parent="Control/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_44bdp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mcsll")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o3pmd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lss0f")
+text = "Connect"
+
+[node name="SubViewport" type="SubViewport" parent="Control"]
+size = Vector2i(640, 480)
+
+[node name="TextureRect" type="TextureRect" parent="Control/SubViewport"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(320, 320)
+texture = ExtResource("1_3gfqf")
+expand_mode = 4
+stretch_mode = 5
+
+[connection signal="pressed" from="Control/Panel2/MarginContainer/VBoxContainer/Connect" to="Netcode" method="_on_connect_pressed"]

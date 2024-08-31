@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://cdcqut55xkmok"]
+
+[sub_resource type="Gradient" id="Gradient_sedxt"]
+colors = PackedColorArray(0, 0, 0, 1, 0.43134, 0.43134, 0.43134, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8ebpn"]
+noise_type = 3
+frequency = 0.2083
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1x03b"]
+color_ramp = SubResource("Gradient_sedxt")
+noise = SubResource("FastNoiseLite_8ebpn")
+
+[resource]
+resource_name = "TRAIN_GRASS_FLOOR_01"
+cull_mode = 2
+albedo_color = Color(0.700924, 0.900183, 0.672225, 1)
+albedo_texture = SubResource("NoiseTexture2D_1x03b")

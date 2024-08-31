@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://0cn3aneyyya2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7hud"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2pg50"]
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(0, 33)
+theme_override_styles/panel = SubResource("StyleBoxFlat_g7hud")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 33)
+layout_mode = 2
+
+[node name="name" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ADDON NAME"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2pg50")
+button_pressed = true

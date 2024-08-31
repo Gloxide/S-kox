@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://br0lrqua88osa"]
+
+[ext_resource type="Script" path="res://Netcode.gd" id="1_8a866"]
+[ext_resource type="PackedScene" uid="uid://yqny6ryww6ne" path="res://UI.tscn" id="2_4k5av"]
+
+[node name="Main" type="Node"]
+
+[node name="Netcode" type="Node" parent="."]
+script = ExtResource("1_8a866")
+
+[node name="3D" type="Node3D" parent="."]
+
+[node name="Control" parent="." instance=ExtResource("2_4k5av")]
+
+[connection signal="pressed" from="Control/Panel/MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer/start" to="Netcode" method="_on_start_pressed"]
+[connection signal="text_submitted" from="Control/Panel/MarginContainer/HBoxContainer/Panel2/MarginContainer/VBoxContainer/LineEdit" to="Netcode" method="_on_line_edit_text_submitted"]
+
+[editable path="Control"]

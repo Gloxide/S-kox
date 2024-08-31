@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2y8lrwi3pykw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ms8o3"]
+
+[sub_resource type="Gradient" id="Gradient_xkc2g"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.484127)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8tb1q"]
+noise_type = 2
+fractal_type = 0
+fractal_octaves = 1
+fractal_lacunarity = 2.095
+fractal_gain = 0.59
+cellular_distance_function = 2
+cellular_jitter = 0.0
+cellular_return_type = 6
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o1vlq"]
+seamless = true
+seamless_blend_skirt = 0.203
+color_ramp = SubResource("Gradient_xkc2g")
+noise = SubResource("FastNoiseLite_8tb1q")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38l2w"]
+albedo_texture = SubResource("NoiseTexture2D_o1vlq")
+uv1_triplanar_sharpness = 0.241484
+uv2_scale = Vector3(0, 0, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_iqxem"]
+material = SubResource("StandardMaterial3D_38l2w")
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ms8o3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_iqxem")
